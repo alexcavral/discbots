@@ -1,0 +1,41 @@
+{
+    "mongo_url": "mongodb+srv://admin:admin@botlist.vl3qh.mongodb.net/diana-em-mongo?retryWrites=true&w=majority",
+    "server": {
+        "id": "866013877085929482",
+        "invite": "https://discord.gg/AUTzxnarbC",
+        "mod_log_id": "882684235964628992",
+        "like_log": "893967309503336518",
+        "admin_user_ids": ["841663958523183164", "766752065598128190", "537406131132170262", "722207631112142909", "903999185353859112", "733721262932754473", "575426354552504370", "835135188618838106"],
+        "role_ids": {
+            "bot": "866032153044975637",
+            "unverified": "866024832860815440",
+            "verified": "866024663029514300",
+
+            "bot_developer": "866024555210080286",
+            "bot_verifier": "866022558414929960"
+        }
+    },
+    "bot_options": {
+        "bot_tags": ["Moderation", "Economy", "Anime", "Chat", "Customizable", "Games", "Fun", "Leveling", "Logging", "Media", "Meme", "Mixer", "Multipurpose", "Music", "Reddit", "Roleplay", "Roles", "Soundboard", "Twitch", "twitter", "Utility", "Verification", "Dashboard", "Youtube", "Botlist", "bot", "others"],
+        "max_bot_tags": 6,
+        "max_owners_count": 4,
+        "max_summary_length": 120,
+        "min_description_length": 50,
+        "max_description_length": 10000
+    },
+    "discord_client": {
+        "id": "804742322054889484",
+        "secret": "0hxIPg6TQhwWys2CfAZ4mrUjmrxgn6ZH",
+        "token": "ODA0NzQyMzIyMDU0ODg5NDg0.YBQwsA.PIDvwmE9bPdsHqZZeRFTKc-GAmQ",
+        "prefix": ".."
+    },
+    "web": {
+        "domain_with_protocol": "https://discbots-list.herokuapp.com",
+        "port": 5000,
+        "ratelimit": 30,
+        "recaptcha_v2": {
+            "site_key": "6LcOdXccAAAAALHCDFlxB0cxQn_7WDmqkCdtYDUG",
+            "secret_key": "6LcOdXccAAAAAAQOJauzsxUzBmYylo2leaY3edQ4"
+        }
+    }
+}
