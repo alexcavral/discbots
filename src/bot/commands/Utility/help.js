@@ -12,7 +12,7 @@ module.exports = class extends Command {
 		super(...args, {
 			aliases: ['commands', 'cmd', 'cmds'],
 			guarded: true,
-			description: (language) => language.get('COMMAND_HELP_DESCRIPTION'),
+			description: "Veja todos os comandos do bot",
 			usage: '(Command:command)'
 		});
 
@@ -41,7 +41,7 @@ module.exports = class extends Command {
 			const previousHandler = this.handlers.get(message.author.id);
 			if (previousHandler) previousHandler.stop();
 
-			const handler = await (await this.buildDisplay(message)).run(await message.send('Loading Commands...'), {
+			const handler = await (await this.buildDisplay(message)).run(await message.send('Carregando comandos...'), {
 				filter: (reaction, user) => user.id === message.author.id,
 				time
 			});
@@ -61,7 +61,7 @@ module.exports = class extends Command {
 
 		const helpMessage = [];
 		for (const [category, list] of commands) {
-			helpMessage.push(`**${category} Comandos**:\n`, list.map(this.formatCommand.bind(this, message, prefix, false)).join('\n'), '');
+			helpMessage.push(`Comandos da categoria **${category}**:\n`, list.map(this.formatCommand.bind(this, message, prefix, false)).join('\n'), '');
 		}
 
 		return helpMessage.join('\n');
@@ -74,7 +74,7 @@ module.exports = class extends Command {
 		const color = message.member.displayColor;
 		for (const [category, list] of commands) {
 			display.addPage(new MessageEmbed()
-				.setTitle(`${category} Comandos`)
+				.setTitle(`Comandos da categoria ${category}`)
 				.setColor(color)
 				.setDescription(list.map(this.formatCommand.bind(this, message, prefix, true)).join('\n'))
 			);

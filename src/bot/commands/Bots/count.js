@@ -10,7 +10,7 @@ module.exports = class extends Command {
             permLevel: 0,
             botPerms: ["SEND_MESSAGES"],
             requiredSettings: [],
-            description: "Check how many bots there are in the list."
+            description: "Veja quantos bots tem no servidor"
         });
     }
 

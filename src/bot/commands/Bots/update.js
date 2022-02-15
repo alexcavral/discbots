@@ -7,7 +7,7 @@ module.exports = class extends Command {
             runIn: ['text'],
             permLevel: 8,
             botPerms: ["SEND_MESSAGES"],
-            description: "Update the bots in the server."
+            description: "Atualiza os bots que estão no server."
         });
     }
 
