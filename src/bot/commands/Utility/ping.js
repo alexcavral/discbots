@@ -5,13 +5,13 @@ module.exports = class extends Command {
         super(...args, {
             runIn: ['text'],
             aliases: ["pong", "latency"],
-            description: "Check the bot's latency",
+            description: "Verifique a latência do bot",
         });
     }
 
     async run(message, [...params]) {
         let now = Date.now()
-        let m = await message.channel.send(`Pinging...`);
+        let m = await message.channel.send(`Calculando...`);
         m.edit(`Pong! \`${Date.now() - now}\`ms`)
     }
 

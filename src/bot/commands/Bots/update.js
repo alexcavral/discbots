@@ -12,11 +12,11 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        let m = await message.channel.send(`Updating bots.`);
+        let m = await message.channel.send(`Atualizando bots.`);
         try {
             await this.update(message.client);
         } catch (e) { console.error(e) }
-        m.edit(`Updated all bots.`);
+        m.edit(`Todos os bots foram atualizados com sucesso.`);
     }
 
     async update(client) {

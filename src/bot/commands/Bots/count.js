@@ -17,7 +17,7 @@ module.exports = class extends Command {
     async run(message) {
         let bots = await Bots.find({}, { _id: false })
         bots = bots.filter(bot => bot.state !== "deleted");
-        if (bots.length === 1) message.channel.send(`There is \`1\` bot in the list.`)
-        else message.channel.send(`There are \`${bots.length}\` bots in the list.`)
+        if (bots.length === 1) message.channel.send(`Há \`1\` bot no servidor.`)
+        else message.channel.send(`Existem \`${bots.length}\` bots no servidor.`)
     }
 };

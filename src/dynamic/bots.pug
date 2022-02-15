@@ -17,7 +17,7 @@ body
                 | #{bot.username}
                 if (discord_verified)
                     i.fas.fa-medal.verified
-                        span.verified_tooltip Verified Bot
+                        span.verified_tooltip Bot verificado
                 a.likes(href=`/bots/like/${bot.botid}`)
                     i.far.fa-heart
                     | #{bot.likes || 0}
@@ -28,12 +28,12 @@ body
                 span #{botUser.presence.status}
             .summary #{bot.description}
             .buttons-case
-                a.bot-btns.button(target='_blank' href=bot.invite ? bot.invite : `https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0`)
+                a.bot-btns.button(target='_blank' href=bot.invite ? bot.invite : `https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0&scope=bot%20applications.commands`)
                     | Invite
                 a.bot-btns.button(target='_blank' href=`/api/embed/${bot.botid}`) Embed
             .bot-buttons
                 if (bot.support)
-                    a.small-link(target='_blank' href=`${bot.support}`) Support Server
+                    a.small-link(target='_blank' href=`${bot.support}`) Servidor de suporte 
                 if (bot.website)
                     a.small-link(target='_blank' href=`${bot.website}`) Website
                 if (bot.github)

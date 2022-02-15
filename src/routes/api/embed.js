@@ -32,7 +32,7 @@ route.get("/:id", async (req, res) => {
     if (discord_verified)
       img.printImage(verified, 420, 55)
     img
-      .printText(`Prefix: ${bot.prefix}`, 30, 145)
+      .printText(`Prefixo: ${bot.prefix}`, 30, 145)
       .setTextFont('normal 15px Verdana')
       .printWrappedText(bot.description, 30, 175, 440, 15)
       

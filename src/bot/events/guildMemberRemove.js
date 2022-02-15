@@ -10,7 +10,7 @@ module.exports = class extends Event {
             try {
                 let bot_member = await this.client.guilds.cache.get(id).members.fetch(bot.botid)
                 bot_member.kick()
-                this.channels.cache.get(mod_log_id).send(`<@${bot.botid}> has been deleted as <@${member.user.id}> (${member.user.tag}) has left.`);
+                this.channels.cache.get(mod_log_id).send(`<@${bot.botid}> foi deletado porque <@${member.user.id}> (${member.user.tag}) saiu do servidor.`);
             } catch(e) {}
         }
     }

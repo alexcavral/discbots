@@ -26,13 +26,13 @@
         if (req.user)
             a#login.navtag.keep(href='/login') #{req.user.username}##{req.user.discriminator}
             span.dd-content
-                a(href='/join' target='_blank') Join Server
+                a(href='/join' target='_blank') Entre no servidor
                 br
-                a(href='/add') Add bot
+                a(href='/add') Adicionar bot
                 br
-                a(href='/api/theme') Toggle Theme
+                a(href='/api/theme') Mudar o tema
                 br
-                a(href='/about') About
+                a(href='/about') Sobre
                 if (req.user.staff)
                     br
                     a(href='/admin') Dashboard

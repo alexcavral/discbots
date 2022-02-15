@@ -11,7 +11,7 @@ route.post("/:id", auth, async function (req, res) {
 
     // Check bot exists
     const bot = await Bots.findOne({ "state": "unverified", botid: req.params.id }, { _id: false });
-    if (!bot) return res.json({ success: false, message: 'Bot not found' });
+    if (!bot) return res.json({ success: false, message: 'Bot não encontrado' });
 
     let { reason } = req.body; 
 
@@ -24,11 +24,11 @@ route.post("/:id", auth, async function (req, res) {
     let modLog = await req.app.get('client').channels.cache.get(mod_log_id);
     modLog.send(
         new MessageEmbed()
-            .setTitle('Bot Denied')
+            .setTitle('Bot reprovado')
             .addField(`Bot`, `<@${bot.botid}>`, true)
-            .addField(`Owner(s)`, owners.map(x => x ? `<@${x}>` : ""), true)
-            .addField("Mod", req.user.username, true)
-            .addField("Reason", reason, true)
+            .addField(`Dono(s)`, owners.map(x => x ? `<@${x}>` : ""), true)
+            .addField("Verificador", req.user.username, true)
+            .addField("Razão", reason, true)
             .setThumbnail(botUser.displayAvatarURL({format: "png", size: 256}))
             .setTimestamp()
             .setColor(0x26ff00)
@@ -38,7 +38,7 @@ route.post("/:id", auth, async function (req, res) {
     // Update developer roles and send DM
     owners = await req.app.get('client').guilds.cache.get(id).members.fetch({user:owners})
     owners.forEach(o => {
-        o.send(`Your bot \`${bot.username}\` has been removed:\n>>> ${reason}`)
+        o.send(`Seu bot \`${bot.username}\` foi reprovado pelo seguinte motivo:\n>>> ${reason}`)
     })
     
     // Kick bot

@@ -7,35 +7,43 @@ body
     include includes/nav.pug
     #content
         span.header
-            h1 Add your bot
-            p Fill in these details and hit that button. Make sure you&apos;re in the server.
+            h1 Adicione seu bot
+            p Preencha esses detalhes e aperte esse botão. Assegure-se de que você está em nosso servidor de discord.
         br
         form.center
             .input-holder
                 input#botid.input(type='text' placeholder=' ')
-                .placeholder Client ID
+                .placeholder ID do bot 
             br
             .input-holder
                 input#prefix.input(type='text' placeholder=' ')
-                .placeholder Prefix
+                .placeholder Prefixo do bot
             br
             .input-holder
                 input#description.input(maxlength=max_summary_length type='text' placeholder=' ')
-                .placeholder Summary
+                .placeholder Descrição curta
             br
             .input-holder
                 textarea#longdesc.input(rows='7')
-                .textarea-placeholder Description
+                .textarea-placeholder Descrição longa
+            br
+            .input-holder
+              select#tags(data-placeholder="Seleciar tags" multiple)
+                each tag of bot_tags
+                  if (bot.tags && bot.tags.includes(tag))
+                    option(selected) #{tag}
+                  else
+                    option #{tag}
             br
             .input-holder
                 input#note.input(maxlength=max_summary_length type='text' placeholder=' ')
-                .placeholder Note to admin
+                .placeholder Nota para os verificadores
             br
             .input-holder
                 input#ownerids.input.xinput(type='text' placeholder=' ')
-                .placeholder Additional Owner IDs
+                .placeholder Outros ID's de donos (não não tiver ignore isto)
             br
             .center-inline.g-recaptcha(data-callback='update_token' data-sitekey=site_key data-theme=req.cookies["theme"] || "light")
-            a.button(onclick='submit()') Submit
+            a.button(onclick='submit()') Enviar
             br
         br

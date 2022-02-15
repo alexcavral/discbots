@@ -83,25 +83,25 @@ $( document ).ready(async function() {
             .then(data => {
                 if (data.success) {
                     Swal.fire({
-                        title: 'Your authorisation token',
+                        title: 'Seu token de autorização',
                         icon: 'info',
                         html:
-                        `Your authorisation token is <code>${data.auth}</code>`,
+                        `Seu token de autorização é <code>${data.auth}</code>`,
                         showCloseButton: true,
                         focusConfirm: false,
-                        confirmButtonText: 'Close',
-                        confirmButtonAriaLabel: 'close',
+                        confirmButtonText: 'Fechar',
+                        confirmButtonAriaLabel: 'Fechar',
                     })
                 } else {
                     Swal.fire({
-                        title: 'Your authorisation token',
+                        title: 'Seu token de autorização',
                         icon: 'error',
                         html:
-                        `There was an error with your authorisation token.`,
+                        `Ocorreu um erro com seu token de autorização.`,
                         showCloseButton: true,
                         focusConfirm: false,
-                        confirmButtonText: 'Close',
-                        confirmButtonAriaLabel: 'close',
+                        confirmButtonText: 'Fechar',
+                        confirmButtonAriaLabel: 'Fechar',
                     })
                 }
             });
@@ -113,25 +113,25 @@ $( document ).ready(async function() {
                 
                 if (data.success) {
                     Swal.fire({
-                        title: 'Your new authorisation token',
+                        title: 'Seu novo token de autorização',
                         icon: 'info',
                         html:
-                        `Your new authorisation token is <code>${data.auth}</code>`,
+                        `seu novo token de autorização é <code>${data.auth}</code>`,
                         showCloseButton: true,
                         focusConfirm: false,
-                        confirmButtonText: 'Close',
-                        confirmButtonAriaLabel: 'close',
+                        confirmButtonText: 'Fechar',
+                        confirmButtonAriaLabel: 'Fechar',
                     })
                 } else {
                     Swal.fire({
-                        title: 'Your new authorisation token',
+                        title: 'Seu novo token de autorização',
                         icon: 'error',
                         html:
-                        `There was an error with your authorisation token.`,
+                        `Ocorreu um erro com seu token de autorização.`,
                         showCloseButton: true,
                         focusConfirm: false,
-                        confirmButtonText: 'Close',
-                        confirmButtonAriaLabel: 'close',
+                        confirmButtonText: 'Fechar',
+                        confirmButtonAriaLabel: 'Fechar',
                     })
                 }
             });

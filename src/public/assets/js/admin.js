@@ -1,9 +1,9 @@
 async function approve(id, username) {
     await Swal.fire({
-        title: `Approve ${username}`,
-        html: `Are you sure you want to approve <u>${username}?</u>`,
+        title: `Aprovar ${username}`,
+        html: `Você tem acerteza que deseja aprovar <u>${username}?</u>`,
         showCancelButton: true,
-        confirmButtonText: `Approve`,
+        confirmButtonText: `Aprovar`,
         showLoaderOnConfirm: true,
         preConfirm: async () => {
             let body = await fetch(`/api/admin/approve/${id}`, {
@@ -20,11 +20,11 @@ async function approve(id, username) {
 
 async function deny(id, username) {
     await Swal.fire({
-        title: `Deny ${username}`,
-        html: `Enter a reason to deny <u>${username}</u>`,
+        title: `Reprovar ${username}`,
+        html: `Insira uma razão para reprovar <u>${username}</u>`,
         showCancelButton: true,
         input: "text",
-        confirmButtonText: `Deny`,
+        confirmButtonText: `Reprovar`,
         showLoaderOnConfirm: true,
         preConfirm: async (reason) => {
             let body = await fetch(`/api/admin/deny/${id}`, {
@@ -42,7 +42,7 @@ async function deny(id, username) {
 
 async function note(note, username) {
     await Swal.fire({
-        title: `Note for ${username}`,
+        title: `Nota para ${username}`,
         text: note,
         confirmButtonText: `Ok`
     })

@@ -61,7 +61,7 @@ module.exports = class extends Command {
 
 		const helpMessage = [];
 		for (const [category, list] of commands) {
-			helpMessage.push(`**${category} Commands**:\n`, list.map(this.formatCommand.bind(this, message, prefix, false)).join('\n'), '');
+			helpMessage.push(`**${category} Comandos**:\n`, list.map(this.formatCommand.bind(this, message, prefix, false)).join('\n'), '');
 		}
 
 		return helpMessage.join('\n');
@@ -74,7 +74,7 @@ module.exports = class extends Command {
 		const color = message.member.displayColor;
 		for (const [category, list] of commands) {
 			display.addPage(new MessageEmbed()
-				.setTitle(`${category} Commands`)
+				.setTitle(`${category} Comandos`)
 				.setColor(color)
 				.setDescription(list.map(this.formatCommand.bind(this, message, prefix, true)).join('\n'))
 			);

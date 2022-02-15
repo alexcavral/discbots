@@ -13,7 +13,7 @@ module.exports = class extends Command {
 
     async run(message, [user]) {
         console.log(user)
-        if (!user || !user.bot) return message.channel.send(`You didn't ping a bot to get a widget of.`);
+        if (!user || !user.bot) return message.channel.send(`Você não mencionou nenhum bot para obter um widget.`);
         let url = `${domain_with_protocol}/api/embed/${user.id}`;
         let img = await fetch(url).then(res => res.buffer());
         message.channel.send({ files: [img] });

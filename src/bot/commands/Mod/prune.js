@@ -7,7 +7,7 @@ module.exports = class extends Command {
             permissionLevel: 6,
             requiredPermissions: ['MANAGE_MESSAGES'],
             runIn: ['text'],
-            description: 'Prunes a certain amount of messages w/o filter.',
+            description: 'Limpa uma certa quantidade de mensagens sem filtro.',
             usage: '[limit:integer] [link|invite|bots|you|me|upload|user:user]',
             usageDelim: ' '
         });
@@ -22,7 +22,7 @@ module.exports = class extends Command {
         }
         messages = messages.array().slice(0, limit);
         await msg.channel.bulkDelete(messages);
-        return msg.sendMessage(`Successfully deleted ${messages.length} messages from ${limit}.`);
+        return msg.sendMessage(`Excluído com sucesso ${messages.length} mensagens de ${limit}.`);
     }
 
     getFilter(msg, filter, user) {

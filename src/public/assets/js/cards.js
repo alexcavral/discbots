@@ -40,7 +40,7 @@ function loadMore(res) {
                 </a>
             </h2>
             <p class="desc">${bot.description}</p>
-            <a href="/bots/${bot.botid}" class="button small">View bot info</a>
+            <a href="/bots/${bot.botid}" class="button small">Ver bot</a>
         </div>`
 
         document.getElementById('cards').insertAdjacentHTML("beforeend", html)
@@ -69,10 +69,10 @@ function search() {
         }
 
         if (cardsVisible === 0) {
-            document.getElementById('searchMore').innerHTML = `No bots found. Would you like to <a href="/bots/search/?q=${s}">search all bots</a>?`;
+            document.getElementById('searchMore').innerHTML = `Nenhum bot encontrado. Você gostaria de <a href="/bots/search/?q=${s}">pesquisar todos os bots</a>?`;
             document.getElementById('searchMore').style.display = "block";
         } else {
-            document.getElementById('searchMore').innerHTML = `Would you like to <a href="/bots/search/?q=${s}">search all bots</a>`
+            document.getElementById('searchMore').innerHTML = `Você gostaria de <a href="/bots/search/?q=${s}">pesquisar todos os bots</a>`
             document.getElementById('searchMore').style.display = "block";
         }
 

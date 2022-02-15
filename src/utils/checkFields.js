@@ -26,63 +26,63 @@ module.exports = async (req, b = null) => {
 
     // User hasn't submitted a captcha
     if (!data.recaptcha_token)
-        return { success: false, message: "Invalid Captcha" }
+        return { success: false, message: "Captcha inválido" }
 
     // Validate captcha
     try {
         await recaptcha.validate(data.recaptcha_token)
     } catch (e) {
-        return { success: false, message: "Invalid Captcha" }
+        return { success: false, message: "Captcha inválido" }
     }
 
     // Check that all the fields are filled in
     if (!data.long.length || !data.description.length || !data.prefix.length)
-        return { success: false, message: "Invalid submission. Check you filled all the fields." }
+        return { success: false, message: "Envio inválido. Verifique se você preencheu todos os campos." }
     
     // Max length for summary and note
-    if (data.description.length > max_summary_length) return { success: false, message: "Your summary is too long." };
-    if (String(data.note).length > max_summary_length) return { success: false, message: "Your note is too long." };
+    if (data.description.length > max_summary_length) return { success: false, message: "Sua descrição curta é muito longa" };
+    if (String(data.note).length > max_summary_length) return { success: false, message: "Sua nota para os verificadores é muito longa" };
 
     // Check if summary or note has HTML.
     if (is(data.description))
-        return { success: false, message: "HTML is not supported in your bot summary" }
+        return { success: false, message: "HTML não é suportado na descrição curta" }
     if (is(data.note))
-        return { success: false, message: "HTML is not supported in your note" }
+        return { success: false, message: "HTML não é suportado na nota para os verificadores" }
 
     // Check that the bot's HTML description isn't too long
     let stripped = data.long.replace("/<[^>]*>/g")
     if (stripped.length < min_description_length)
-        return { success: false, message: "Your HTML description is too short" }
+        return { success: false, message: "O HTML da descrição é muito curto" }
     if (stripped.length > max_description_length)
-        return { success: false, message: "Your HTML description is too long" }
+        return { success: false, message: "O HTML da descrição é muito longo" }
     
     // Check that all the links are valid
     if (data.invite && !isValidUrl(data.invite)) 
-        return { success: false, message: "Invalid invite link" }
+        return { success: false, message: "invite inválido" }
     if (data.support && !isValidUrl(data.support)) 
-        return { success: false, message: "Invalid support server" }
+        return { success: false, message: "servidor de suporte inválido" }
     if (data.website && !isValidUrl(data.website))
-        return { success: false, message: "Invalid website" }
+        return { success: false, message: "website inválido" }
     if (data.github && !isValidUrl(data.github))
-        return { success: false, message: "Invalid Github repository" }
+        return { success: false, message: "Github repository inválido" }
     if (data.webhook && !isValidUrl(data.webhook))
-        return { success: false, message: "Invalid webhook URL" }
+        return { success: false, message: "webhook URL inválido" }
 
     // Check bot tags are valid
     if (data.tags) {
         if (!Array.isArray(data.tags))
-            return { success: false, message: "Invalid bot tags" }
+            return { success: false, message: "bot tags inválido" }
         if (data.tags.length > max_bot_tags)
-            return { success: false, message: `Select up to ${max_bot_tags} tags max` }
+            return { success: false, message: `Selecione até ${max_bot_tags} tags no máximo.` }
         if (!data.tags.every(val => bot_tags.includes(val)))
-            return { success: false, message: `Invalid tag(s)` }
+            return { success: false, message: `tag(s) inválida(s)` }
     }
     
     // Check the user is in the main server.
     try {
         await req.app.get('client').guilds.cache.get(id).members.fetch(req.user.id);
     } catch (e) {
-        return { success: false, message: "You aren't in the server", button: { text: "Join", url: "/join" } }
+        return { success: false, message: "Você não está no servidor", button: { text: "Join", url: "/join" } }
 
     }
     // Search for a user with discord
@@ -90,13 +90,13 @@ module.exports = async (req, b = null) => {
     try {
         bot = await req.app.get('client').users.fetch(req.params.id)
         if (!bot.bot)
-            return { success: false, message: "Invalid ID. User is not a bot" }
+            return { success: false, message: "ID inválido. O usuário não é um bot" }
     } catch (e) {
         // Invalid bot ID
         if (e.message.endsWith("is not snowflake.") || e.message == "Unknown User")
-            return { success: false, message: "Invalid bot ID" }
+            return { success: false, message: "O ID que indicou não é válido" }
         else
-            return { success: false, message: "Could not find user" }
+            return { success: false, message: "Não foi possivel encontrar o bot" }
     }
 
     /* 
@@ -111,7 +111,7 @@ module.exports = async (req, b = null) => {
         !b.owners.additional.includes(req.user.id) &&
         !req.user.staff
     )
-        return { success: false, message: "Invalid request. Please sign in again.", button: { text: "Logout", url: "/logout" } }
+        return { success: false, message: "Pedido inválido. Faça login novamente.", button: { text: "Logout", url: "/logout" } }
 
     // If the additional owners have been changed, check that the primary owner is editing it
     if (
@@ -119,7 +119,7 @@ module.exports = async (req, b = null) => {
         data.owners.replace(',', '').split(' ').remove('').join() !== b.owners.additional.join() &&
         b.owners.primary !== req.user.id
     )
-        return { success: false, message: "Only the primary owner can edit additional owners" };
+        return { success: false, message: "Somente o proprietário principal pode editar proprietários adicionais" };
   
     let users = []
     if (data.owners) 
@@ -137,10 +137,10 @@ module.exports = async (req, b = null) => {
 
         // Check if additional owners exceed max
         if (users.length > max_owners_count)
-            return { success: false, message: `You can only add up to ${max_owners_count} additional owners` };
+            return { success: false, message: `Você só pode adicionar até ${max_owners_count} outros donos.` };
 
         return { success: true, bot, users }
     } catch (e) {
-        return { success: false, message: "Invalid Owner IDs" };
+        return { success: false, message: "IDs de proprietário inválidos" };
     }
 }

@@ -23,7 +23,7 @@ route.patch("/:id", auth, async (req, res) => {
   let webhook = (await channel.fetchWebhooks()).first();
   if (!webhook) 
     webhook = await channel.createWebhook('DiscBots')
-  await webhook.send(`<@${req.user.id}> (${userProfile.tag}) liked <@${req.params.id}>`);
+  await webhook.send(`<@${req.user.id}> (${userProfile.tag}) votou no bot <@${req.params.id}>`);
 
   // Custom webhook
   if (bot.webhook) {

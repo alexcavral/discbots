@@ -14,7 +14,7 @@ body
             if (moderator)
                 span.badge
                     img(src='/assets/img/moderator.png' title='Moderator')
-                    |  Moderator
+                    |  Moderador
     #cards
         each val, i in cards
             div.card
@@ -27,4 +27,4 @@ body
                         i.far.fa-heart
                         | #{val.likes || 0}
                 p.desc #{val.description}
-                a.small.button(href=`/bots/${val.botid}`) View Bot
+                a.small.button(href=`/bots/${val.botid}`) Ver bot
