@@ -24,10 +24,10 @@
         "max_description_length": 10000
     },
     "discord_client": {
-        "id": "804742322054889484",
-        "secret": "0hxIPg6TQhwWys2CfAZ4mrUjmrxgn6ZH",
-        "token": "ODA0NzQyMzIyMDU0ODg5NDg0.YBQwsA.PIDvwmE9bPdsHqZZeRFTKc-GAmQ",
-        "prefix": ".."
+        "id": "882725763848220742",
+        "secret": "GXajNHJZ6huoAflytJoA6kzKEafO2j2J",
+        "token": "ODgyNzI1NzYzODQ4MjIwNzQy.YS_kbg.s510sAizLyG2UUVowo2bL7v2Ibw",
+        "prefix": "+"
     },
     "web": {
         "domain_with_protocol": "https://discbots-list.herokuapp.com",
