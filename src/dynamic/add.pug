@@ -28,14 +28,6 @@ body
                 .textarea-placeholder Descrição longa
             br
             .input-holder
-              select#tags(data-placeholder="Seleciar tags" multiple)
-                each tag of bot_tags
-                  if (bot.tags && bot.tags.includes(tag))
-                    option(selected) #{tag}
-                  else
-                    option #{tag}
-            br
-            .input-holder
                 input#note.input(maxlength=max_summary_length type='text' placeholder=' ')
                 .placeholder Nota para os verificadores
             br
