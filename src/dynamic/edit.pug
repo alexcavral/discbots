@@ -9,10 +9,10 @@ body(onload="load()")
     include includes/nav.pug
     #content
       span.header
-        h1 Edit
+        h1 Editar
       br
       .sidebar
-        a.link(data-target="#edit") Editar detalher
+        a.link(data-target="#edit") Editar detalhes
         a.link(data-target="#links") Mudar links
         a.link(data-target="#server-count") Contagem de servidores (API)
         a.link(data-target="#manage") Gerenciar bot
@@ -46,7 +46,7 @@ body(onload="load()")
             .input-holder
               if (bot.owners.primary == req.user.id)
                 input#owner-ids.input.xinput(type='text' placeholder=' ' value=String(bot.owners.additional.join(" ")))
-                .placeholder Outros ID's de donos (não não tiver ignore isto)
+                .placeholder Outros ID's de donos (se não tiver ignore isto)
               else
                 input#owner-ids.input.xinput(type='text' placeholder=' ' value=String(bot.owners.additional.join(" ")) disabled)
                 .placeholder Somente o proprietário principal pode editar proprietários adicionais
