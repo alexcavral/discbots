@@ -88,7 +88,7 @@ route.post("/:id", auth, async (req, res) => {
         }).save();
     }
     try {
-        await req.app.get('client').channels.cache.find(c => c.id === server.mod_log_id).send(`<@${req.user.id}> ${resubmit ? "re" : ""}submitted <@${req.params.id}>: <@&${server.role_ids.bot_verifier}>`);
+        await req.app.get('client').channels.cache.find(c => c.id === server.mod_log_id).send(`<@${req.user.id}> ${resubmit ? "re" : ""}enviou o bot <@${req.params.id}> para a verificação: <@&${server.role_ids.bot_verifier}>`);
         return res.json({ success: true, message: "Seu bot foi adicionado" })
     } catch (e) {
         return res.json({ success: true, message: "Seu bot foi adicionado" })
