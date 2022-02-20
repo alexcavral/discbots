@@ -33,7 +33,7 @@ module.exports = class extends Command {
             e.addField(`Website`, !bot.website ? "Não adicionado" : `[Clique aqui](${bot.website})`, true)
             e.addField(`Github`, !bot.github ? "Não adicionado" : `[Clique aqui](${bot.github})`, true)
             e.addField(`Likes`, `${bot.likes || 0} Likes`, true)
-            e.addField(`Toal de servidores`, `${servers || 0} Servers`, true)
+            e.addField(`Total de servidores`, `${servers || 0} Servers`, true)
             e.addField(`Dono`, `<@${bot.owners.primary}>`, true)
             e.addField(`Estado`, bot.state, true)
         message.channel.send(e);
